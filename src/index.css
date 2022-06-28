@@ -1,0 +1,27 @@
+body{
+  background: rgb(176, 171, 171);
+}
+.card{
+  border-radius: .75rem;
+  background-color: #eff1f2;
+}
+.d-flex flex-row justify-content-end mb-1 a i{
+  color: #23af89; 
+}
+#list1 .form-control {
+  border-color: transparent;
+  }
+  #list1 .form-control:focus {
+  border-color: transparent;
+  box-shadow: none;
+  }
+  #list1 .select-input.form-control[readonly]:not([disabled]) {
+  background-color: #fbfbfb;
+  }
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  .fa-trash-alt{
+    cursor: pointer;
+  }

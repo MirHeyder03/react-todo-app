@@ -4,37 +4,54 @@ const Form = ({ inputText, setInputText, todos, setTodos,setStatus }) => {
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
-  const submitTodoHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (e) => {
+    // e.preventDefault();
     setTodos([
       ...todos,
       { text: inputText, completed: false, id: Math.random() * 1000 },
     ]);
     setInputText("");
   };
-
   const statusHandler=(e)=>{
-    setStatus(e.target.value)
+    setStatus(e.target.value);
   }
   return (
-    <form>
-      <input
-        value={inputText}
-        onChange={inputTextHandler}
-        type="text"
-        className="todo-input"
-      />
-      <button onClick={submitTodoHandler} className="todo-button" type="submit">
-        <i className="fas fa-plus-square"></i>
-      </button>
-      <div className="select">
-        <select onChange={statusHandler} name="todos" className="filter-todo">
+    <div>
+      <div className="pb-2">
+        <div className="card">
+          <div className="card-body">
+            <div className="d-flex flex-row align-items-center">
+              <input
+                value={inputText}
+                onChange={inputTextHandler}
+                type="text"
+                className="form-control form-control-lg"
+                id="exampleFormControlInput1"
+                placeholder="Add"
+              />
+
+              <div>
+                <button
+                  onClick={submitHandler}
+                  type="submit"
+                  className="btn btn-primary m-3"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-end align-items-center mb-4 pt-2 pb-3">
+        <select onClick={statusHandler} className="select">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
         </select>
       </div>
-    </form>
+    </div>
   );
 };
 
